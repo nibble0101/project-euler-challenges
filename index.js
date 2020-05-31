@@ -25,3 +25,35 @@ function fiboEvenSum(n) {
   }
   return sum;
 }
+
+//Project Euler: Problem 3: Largest prime factor
+//Solution is inefficient. Doesn't pass all tests
+
+function largestPrimeFactor(number) {
+    const isPrime = (n) => {
+        if(n < 2){
+          return false;
+        }
+        for(let i = 2; i <= Math.sqrt(n); i++){
+            if(n % i === 0){
+              return false;
+            };
+        };
+        return true;
+    };
+   if(isPrime(number)){
+       return number;
+   }
+   for(let i = Math.floor(number/2); i > 1; i--){
+       if(number % i === 0){
+           if(isPrime(i)){
+              return i;
+           };
+       };
+   };
+   
+ };
+ 
+ 
+ 
+ 
