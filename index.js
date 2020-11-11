@@ -54,6 +54,19 @@ function largestPrimeFactor(number) {
    
  };
  
- 
+// Project Euler: Problem 22: Names scores
+function namesScores(arr) {
+  arr.sort();
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
+  let totalScore = 0;
+  arr.forEach((name, index) => {
+    const position = index + 1;
+    const worth = name.split('').reduce((acc, curr) => {
+        return acc + alphabet.indexOf(curr.toLowerCase()) + 1;
+    }, 0);
+    totalScore += position * worth;
+  })
+  return totalScore;
+}
  
  
